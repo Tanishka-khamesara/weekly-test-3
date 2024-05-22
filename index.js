@@ -25,14 +25,14 @@ const userRegistrationMiddleware = (req, res, next) => {
     const { firstName, lastName, password, email, phoneNumber } = req.body;
 
     // Validate first name
-    if (firstName === "" || !isUpperCase(firstName.charAt(0))) {
+    if (!firstName || !isUpperCase(firstName.charAt(0))) {
         return res.status(400).json({
             message: "First name must start with an uppercase letter."
         });
     }
 
     // Validate last name
-    if (lastName === "" || !isUpperCase(lastName.charAt(0))) {
+    if (!lastName || !isUpperCase(lastName.charAt(0))) {
         return res.status(400).json({
             message: "Last name must start with an uppercase letter."
         });
